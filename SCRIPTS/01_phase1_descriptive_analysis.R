@@ -17,9 +17,9 @@ library(corrplot)
 library(scales)
 
 root <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
-data_dir <- file.path(root, "01_DATA")
-visual_dir <- file.path(root, "03_VISUALIZATIONS", "TASK3_Descriptive")
-report_dir <- file.path(root, "04_REPORTS", "INDIVIDUAL_SECTIONS")
+data_dir <- file.path(root, "DATA")
+visual_dir <- file.path(root, "VISUALIZATIONS", "DESCRIPTIVE")
+report_dir <- file.path(root, "REPORTS", "INDIVIDUAL_SECTIONS")
 dir.create(visual_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(report_dir, recursive = TRUE, showWarnings = FALSE)
 

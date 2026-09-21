@@ -11,8 +11,8 @@ if (length(still_missing) > 0) stop("Package installation failed: ", paste(still
 library(officer)
 
 root <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
-presentation_dir <- file.path(root, "07_PRESENTATIONS")
-visual_dir <- file.path(root, "03_VISUALIZATIONS")
+presentation_dir <- file.path(root, "PRESENTATIONS")
+visual_dir <- file.path(root, "VISUALIZATIONS")
 dir.create(presentation_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(file.path(presentation_dir, "VIVA_PREP"), recursive = TRUE, showWarnings = FALSE)
 
@@ -55,8 +55,8 @@ slides <- add_title_content(slides, "Dataset and outcome", c(
   "30-day readmission prevalence: approximately 11.2%.",
   "Missingness is concentrated in selected administrative and clinical fields."
 ))
-slides <- add_image_slide(slides, "Descriptive analysis: outcome and age", file.path(visual_dir, "TASK3_Descriptive", "01_readmission_distribution.png"))
-slides <- add_image_slide(slides, "Descriptive analysis: utilisation and equity", file.path(visual_dir, "TASK3_Descriptive", "04_race_by_readmission_EQUITY.png"))
+slides <- add_image_slide(slides, "Descriptive analysis: outcome and age", file.path(visual_dir, "DESCRIPTIVE", "01_readmission_distribution.png"))
+slides <- add_image_slide(slides, "Descriptive analysis: utilisation and equity", file.path(visual_dir, "DESCRIPTIVE", "04_race_by_readmission_EQUITY.png"))
 slides <- add_title_content(slides, "Statistical inference", c(
   "Associations were tested for age, gender, length of stay, medication count, discharge disposition, and diabetes medication status.",
   "Age, length of stay, medication count, disposition, and diabetes medication status were significant in this large sample.",
@@ -69,8 +69,8 @@ slides <- add_title_content(slides, "Predictive modelling", c(
   "Test AUC was approximately 0.66 across models.",
   "The models support a monitored pilot, not autonomous decisions."
 ))
-slides <- add_image_slide(slides, "Model performance comparison", file.path(visual_dir, "TASK5_Modeling", "04_model_performance_comparison.png"))
-slides <- add_image_slide(slides, "Model discrimination", file.path(visual_dir, "TASK5_Modeling", "01_logit_roc_curve.png"))
+slides <- add_image_slide(slides, "Model performance comparison", file.path(visual_dir, "MODELING", "04_model_performance_comparison.png"))
+slides <- add_image_slide(slides, "Model discrimination", file.path(visual_dir, "MODELING", "01_logit_roc_curve.png"))
 slides <- add_title_content(slides, "Innovation: HREWS", c(
   "An advisory Hospital Readmission Early Warning System.",
   "Risk probability + key drivers + provisional tier + matched discharge checklist.",

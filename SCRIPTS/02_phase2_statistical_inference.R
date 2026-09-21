@@ -16,8 +16,8 @@ library(readr)
 library(tidyr)
 
 root <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
-data_dir <- file.path(root, "01_DATA")
-report_dir <- file.path(root, "04_REPORTS", "INDIVIDUAL_SECTIONS")
+data_dir <- file.path(root, "DATA")
+report_dir <- file.path(root, "REPORTS", "INDIVIDUAL_SECTIONS")
 if (!file.exists(file.path(data_dir, "readmission_cleaned.csv"))) {
   stop("Run 01_phase1_descriptive_analysis.R first.")
 }

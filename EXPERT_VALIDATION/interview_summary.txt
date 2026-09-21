@@ -13,7 +13,7 @@ Consent to document and quote: [Yes/No]
 
 BACKGROUND
 
-Briefly describe the consultancy, the encounter-level dataset, the main descriptive findings, the predictive models, and the proposed HREWS workflow. Do not describe an interview as completed until the conversation has occurred and evidence is retained in 06_EXPERT_VALIDATION/EVIDENCE/.
+Briefly describe the consultancy, the encounter-level dataset, the main descriptive findings, the predictive models, and the proposed HREWS workflow. Do not describe an interview as completed until the conversation has occurred and evidence is retained in EXPERT_VALIDATION/EVIDENCE/.
 
 KEY FINDINGS
 
@@ -64,6 +64,6 @@ EVIDENCE CHECKLIST
 
 [ ] Interview notes or transcript retained
 [ ] Consent documented
-[ ] Evidence file added to 06_EXPERT_VALIDATION/EVIDENCE/
+[ ] Evidence file added to EXPERT_VALIDATION/EVIDENCE/
 [ ] Names and patient-identifying information handled appropriately
 [ ] Claims in the report reflect the actual interview

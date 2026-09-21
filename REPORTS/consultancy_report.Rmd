@@ -14,7 +14,7 @@ fontsize: 11pt
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 root_candidates <- unique(c(getwd(), normalizePath("..", winslash = "/", mustWork = TRUE)))
-root <- root_candidates[file.exists(file.path(root_candidates, "01_DATA", "readmission_raw.csv"))][1]
+root <- root_candidates[file.exists(file.path(root_candidates, "DATA", "readmission_raw.csv"))][1]
 if (is.na(root)) stop("Project root could not be located.")
 read_section <- function(path) paste(readLines(file.path(root, path), warn = FALSE), collapse = "\n")
 ```
@@ -38,12 +38,12 @@ Insert the team literature review here. Include at least 15 genuine sources, con
 The source data contain 101,766 encounters and 50 columns. Missingness is concentrated in several administrative and clinical fields. The complete encounter cohort is retained for descriptive analysis, while each model uses the fields required for that analysis.
 
 ```{r task3-table}
-stats_path <- file.path(root, "04_REPORTS", "INDIVIDUAL_SECTIONS", "data_summary_statistics.csv")
+stats_path <- file.path(root, "REPORTS", "INDIVIDUAL_SECTIONS", "data_summary_statistics.csv")
 if (file.exists(stats_path)) knitr::kable(read.csv(stats_path), caption = "Numeric descriptive statistics")
 ```
 
 ```{r task3-figures, fig.show='hold', fig.cap='Task 3 descriptive figures'}
-figures <- file.path(root, "03_VISUALIZATIONS", "TASK3_Descriptive", paste0(sprintf("%02d", 1:10), c("_readmission_distribution.png", "_age_by_readmission.png", "_gender_by_readmission.png", "_race_by_readmission_EQUITY.png", "_los_by_readmission.png", "_medications_by_readmission.png", "_prior_utilization.png", "_outlier_detection_boxplots.png", "_correlation_matrix.png", "_missing_data_pattern.png")))
+figures <- file.path(root, "VISUALIZATIONS", "DESCRIPTIVE", paste0(sprintf("%02d", 1:10), c("_readmission_distribution.png", "_age_by_readmission.png", "_gender_by_readmission.png", "_race_by_readmission_EQUITY.png", "_los_by_readmission.png", "_medications_by_readmission.png", "_prior_utilization.png", "_outlier_detection_boxplots.png", "_correlation_matrix.png", "_missing_data_pattern.png")))
 figures <- figures[file.exists(figures)]
 if (length(figures) > 0) knitr::include_graphics(figures)
 ```
@@ -53,7 +53,7 @@ if (length(figures) > 0) knitr::include_graphics(figures)
 The six tests are reported as associations. Welch tests were used for continuous variables, chi-square tests for categorical variables, and one-way ANOVA for discharge disposition and length of stay. Effect sizes should be considered alongside p-values because the sample is large.
 
 ```{r task4-table}
-results_path <- file.path(root, "04_REPORTS", "INDIVIDUAL_SECTIONS", "statistical_test_results.csv")
+results_path <- file.path(root, "REPORTS", "INDIVIDUAL_SECTIONS", "statistical_test_results.csv")
 if (file.exists(results_path)) knitr::kable(read.csv(results_path), caption = "Statistical inference results")
 ```
 
@@ -62,12 +62,12 @@ if (file.exists(results_path)) knitr::kable(read.csv(results_path), caption = "S
 The modelling pipeline uses a stratified split, training-only standardization for penalized models, five-fold cross-validation, and thresholds selected from training ROC curves. Logistic regression provides interpretable coefficients; ridge handles correlated predictors; LASSO produces a sparse model.
 
 ```{r task5-table}
-models_path <- file.path(root, "04_REPORTS", "INDIVIDUAL_SECTIONS", "model_comparison.csv")
+models_path <- file.path(root, "REPORTS", "INDIVIDUAL_SECTIONS", "model_comparison.csv")
 if (file.exists(models_path)) knitr::kable(read.csv(models_path), caption = "Test-set model comparison")
 ```
 
 ```{r task5-figures, fig.show='hold', fig.cap='Task 5 model outputs'}
-model_figures <- file.path(root, "03_VISUALIZATIONS", "TASK5_Modeling", paste0(sprintf("%02d", 1:5), c("_logit_roc_curve.png", "_ridge_roc_curve.png", "_lasso_roc_curve.png", "_model_performance_comparison.png", "_feature_importance.png")))
+model_figures <- file.path(root, "VISUALIZATIONS", "MODELING", paste0(sprintf("%02d", 1:5), c("_logit_roc_curve.png", "_ridge_roc_curve.png", "_lasso_roc_curve.png", "_model_performance_comparison.png", "_feature_importance.png")))
 model_figures <- model_figures[file.exists(model_figures)]
 if (length(model_figures) > 0) knitr::include_graphics(model_figures)
 ```
@@ -75,31 +75,31 @@ if (length(model_figures) > 0) knitr::include_graphics(model_figures)
 # Task 6: Experimental Design
 
 ```{r task6, results='asis'}
-cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/task6_experimental_design_evaluation.txt"))
+cat(read_section("REPORTS/INDIVIDUAL_SECTIONS/task6_experimental_design_evaluation.txt"))
 ```
 
 # Task 7: PCA Evaluation
 
 ```{r task7, results='asis'}
-cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/task7_pca_evaluation.txt"))
+cat(read_section("REPORTS/INDIVIDUAL_SECTIONS/task7_pca_evaluation.txt"))
 ```
 
 # Task 8: Bayesian Methods
 
 ```{r task8, results='asis'}
-cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/task8_bayesian_evaluation.txt"))
+cat(read_section("REPORTS/INDIVIDUAL_SECTIONS/task8_bayesian_evaluation.txt"))
 ```
 
 # Task 9: Time Series Analysis
 
 ```{r task9, results='asis'}
-cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/task9_timeseries_evaluation.txt"))
+cat(read_section("REPORTS/INDIVIDUAL_SECTIONS/task9_timeseries_evaluation.txt"))
 ```
 
 # Task 10: HREWS Innovation Proposal
 
 ```{r task10, results='asis'}
-cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/MEMBER4_Task10_Innovation_Proposal.txt"))
+cat(read_section("REPORTS/INDIVIDUAL_SECTIONS/MEMBER4_Task10_Innovation_Proposal.txt"))
 ```
 
 # Task 11: Expert Validation
@@ -107,13 +107,13 @@ cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/MEMBER4_Task10_Innovation_Propo
 The interview summary is a template until a real healthcare professional has been interviewed. Replace the placeholders only with verified notes, consent status, and evidence.
 
 ```{r task11, results='asis'}
-cat(read_section("06_EXPERT_VALIDATION/interview_summary.txt"))
+cat(read_section("EXPERT_VALIDATION/interview_summary.txt"))
 ```
 
 # Task 12: Final Recommendations
 
 ```{r task12, results='asis'}
-cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/MEMBER_ALL_Task12_Final_Recommendations.Rmd"))
+cat(read_section("REPORTS/INDIVIDUAL_SECTIONS/MEMBER_ALL_Task12_Final_Recommendations.Rmd"))
 ```
 
 # References
