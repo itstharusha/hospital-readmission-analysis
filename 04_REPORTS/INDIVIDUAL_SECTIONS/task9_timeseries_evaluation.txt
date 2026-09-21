@@ -1,0 +1,32 @@
+TASK 9: TIME SERIES ANALYSIS EVALUATION
+Hospital Readmission Consultancy
+
+1. CURRENT DATA LIMITATION
+
+The available record is an encounter-level dataset with a single readmission outcome for each encounter. It does not provide a complete, time-ordered sequence of admissions, readmission dates, daily observations, or intervention dates. Traditional patient-level ARIMA or exponential-smoothing analysis is therefore not appropriate for the current table.
+
+2. FUTURE SCENARIO A: PATIENT LONGITUDINAL DATA
+
+If encounters could be linked over time, the project could analyse days to first readmission using survival analysis, repeated readmissions using recurrent-event or frailty models, and transitions between stable, at-risk, readmitted, and recovered states using Markov models. This would support identification of frequent users and personalized follow-up timing.
+
+Required data include a reliable patient identifier, admission and discharge timestamps, complete readmission capture, and censoring information.
+
+3. FUTURE SCENARIO B: HOSPITAL AGGREGATE DATA
+
+Monthly admissions and 30-day readmission counts could form a hospital-level time series. Suitable methods include binomial or beta-binomial rate models, seasonal decomposition, exponential smoothing, ARIMA, and interrupted time-series analysis when a policy change has a known implementation date.
+
+This is the most feasible immediate extension. It could forecast workload, identify seasonal patterns, monitor quality, and evaluate changes in discharge policy. Counts and denominators should be retained; modelling rates alone can produce misleading uncertainty.
+
+4. FUTURE SCENARIO C: CLINICAL TRAJECTORY DATA
+
+Daily or hourly vital signs, laboratory results, medication changes, and functional measures during an admission would permit trajectory analysis. Mixed-effects models, functional data analysis, landmark prediction, or recurrent neural networks could assess whether the direction and stability of recovery predicts safe discharge.
+
+This requires standardized measurement, careful handling of irregular timing and missingness, and prospective validation. It should not be implemented solely because a method is technically available.
+
+5. RECOMMENDATION
+
+Start with monthly hospital-level aggregation if dates and denominators are available. Next, develop a prospective clinical-trajectory dataset. Patient-level recurrent-event analysis should follow only after complete longitudinal linkage is established.
+
+6. CONCLUSION
+
+The present data support cross-sectional risk modelling, not traditional patient-level time-series modelling. Time-series methods are promising future tools, but their validity depends on collecting the temporal structure needed by the proposed question.

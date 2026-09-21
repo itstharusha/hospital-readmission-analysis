@@ -1,0 +1,45 @@
+TASK 8: EVALUATION OF BAYESIAN STATISTICAL METHODS
+Hospital Readmission Consultancy
+
+1. NAIVE BAYES
+
+Naive Bayes applies Bayes' theorem while assuming conditional independence of predictors within each outcome class. It is fast and useful as a baseline, but the independence assumption is doubtful here because age, diagnoses, medication burden, length of stay, and prior utilisation are related. It should be used only as a comparative baseline, not assumed to be superior to logistic regression.
+
+2. BAYESIAN LOGISTIC REGRESSION
+
+Bayesian logistic regression assigns prior distributions to coefficients and combines them with the observed data to obtain posterior distributions. It can report a posterior mean, credible interval, and the probability that an effect is positive or negative.
+
+Potential benefits:
+
+- Incorporates defensible prior clinical knowledge.
+- Quantifies uncertainty in coefficients and patient-level predictions.
+- Supports hierarchical effects when data from multiple hospitals are available.
+- Provides a natural probabilistic framework for risk thresholds and resource allocation.
+
+Limitations:
+
+- Prior specification requires clinical and statistical justification.
+- Results should be checked under reasonable alternative priors.
+- MCMC models require convergence, effective-sample-size, and posterior-predictive checks.
+- A Bayesian model is not automatically better calibrated or more accurate.
+- Deployment requires technical expertise and a governance process.
+
+3. BAYESIAN DECISION MAKING
+
+Prediction and action are different problems. A hospital can use a cost matrix to choose a threshold. If missing a patient who will be readmitted is substantially more costly than an unnecessary follow-up, a threshold below 0.50 may be reasonable. The threshold must be estimated from local costs, intervention capacity, patient preferences, and clinical safety requirements rather than asserted in advance.
+
+Expected loss can be expressed as:
+
+Expected loss(action) = sum over outcomes of P(outcome | data) times cost(action, outcome).
+
+The action with the lowest expected loss is selected. This framework makes the trade-off between false negatives and false positives explicit.
+
+4. RECOMMENDED HYBRID APPROACH
+
+For initial implementation, retain interpretable logistic regression as the operational baseline and evaluate a Bayesian logistic model as a validation and decision-support layer. A future multi-hospital model could use hospital-specific intercepts with shared predictor effects. Priors should be weakly informative unless external evidence strongly supports a more specific prior.
+
+Report posterior predictive discrimination, calibration, subgroup performance, credible intervals, and sensitivity to prior choices. Display uncertainty to clinicians and preserve clinical override authority.
+
+5. CONCLUSION
+
+Naive Bayes is suitable as a baseline. Bayesian logistic regression is valuable for uncertainty quantification, multi-hospital modelling, and cost-sensitive decisions, but it should complement rather than replace a transparent operational model until it has been validated locally.

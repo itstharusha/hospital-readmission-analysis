@@ -1,0 +1,71 @@
+---
+title: "Task 12: Final Consultancy Recommendations for Hospital Readmission Prevention"
+author: "Hospital Readmission Consultancy Team"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+# Executive Summary
+
+The analysis used 101,766 encounter records from the Diabetes 130-US Hospitals dataset. The target was mapped from the source values: `<30` became readmitted within 30 days, while `>30` and `NO` were treated as not readmitted for the binary modelling task. Approximately 11.2% of encounters were readmitted within 30 days, creating a substantial class imbalance.
+
+Descriptive analysis identified differences in age, length of stay, medication count, discharge disposition, and diabetes medication status. Gender was not statistically significant in the current analysis. These findings are associations in retrospective data and should not be interpreted as causal effects.
+
+The corrected modelling pipeline used a stratified split, training-only standardization for penalized models, five-fold cross-validation, and thresholds selected from training data. Test AUC was approximately 0.66 for logistic, ridge, and LASSO models. The models are suitable for a monitored pilot, not autonomous clinical decisions.
+
+# Recommendations
+
+## Recommendation 1: Validate an advisory HREWS pilot
+
+Implement a Hospital Readmission Early Warning System in advisory mode for one clinical unit. Show a probability, provisional risk tier, key drivers, and a recommended checklist. Require clinician review and permit documented overrides.
+
+Before deployment, validate discrimination and calibration on recent local data. Monitor false negatives, data drift, subgroup performance, intervention access, and workflow time.
+
+## Recommendation 2: Match follow-up intensity to need
+
+Use three operational tiers only after local thresholds are validated.
+
+- Low: standard education, medication instructions, and routine follow-up.
+- Moderate: structured checklist, medication reconciliation, primary-care communication, and a 48-72 hour call.
+- High: multidisciplinary planning, social-needs screening, early nurse or telehealth contact, and scheduled specialist follow-up.
+
+The intervention must be resourced. A model cannot reduce readmissions if the organization cannot complete the recommended follow-up.
+
+## Recommendation 3: Establish equity and safety governance
+
+Report calibration, sensitivity, specificity, precision, and intervention completion by relevant demographic groups. Review whether the system underpredicts risk or allocates fewer services to any group. Use race and gender primarily for auditing unless there is a defensible clinical reason to use them for prediction.
+
+Create a monthly review group with clinical, analytics, IT, quality, finance, and patient representation. Clinical judgement remains authoritative.
+
+## Recommendation 4: Test causal effectiveness
+
+The current work is observational. A prospective randomized complete block design, with randomization within validated risk strata, can test whether enhanced follow-up causes a reduction in 30-day readmission. Use intention-to-treat analysis, a pre-specified outcome, local sample-size calculations, and standard-of-care controls.
+
+## Recommendation 5: Build better temporal data
+
+The present table is not a patient-level time series. Future work should first aggregate monthly admissions and readmission counts if valid dates are available. Later work can link longitudinal admissions and collect daily clinical trajectories for survival, recurrent-event, or trajectory modelling.
+
+# Implementation Timeline
+
+Months 1-2: governance, data definitions, local validation, privacy review, and pilot selection.
+
+Months 3-5: dashboard prototype, workflow design, staff training, intervention protocols, and monitoring plan.
+
+Months 6-8: advisory pilot with usability, calibration, equity, and workload evaluation.
+
+Months 9-12: controlled expansion only if safety, capacity, and outcome criteria are met.
+
+# Limitations
+
+The dataset is retrospective and encounter-level. It lacks many social determinants, complete longitudinal history, intervention exposure, and reliable temporal structure for patient-level time series analysis. Missingness is concentrated in variables such as weight, payer code, and specialty. Predictive performance may not transfer to another hospital. Statistical significance is not equivalent to clinical importance, and no observed association establishes that an intervention will reduce readmission.
+
+# Conclusion
+
+The most defensible action is a governed, locally validated, advisory HREWS pilot linked to risk-matched follow-up and equity monitoring. Prospective controlled evaluation should determine whether the proposed interventions improve outcomes before broad deployment.

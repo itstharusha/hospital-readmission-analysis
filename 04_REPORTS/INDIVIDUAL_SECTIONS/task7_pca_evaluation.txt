@@ -1,0 +1,34 @@
+TASK 7: CRITICAL EVALUATION OF PRINCIPAL COMPONENT ANALYSIS (PCA)
+Hospital Readmission Consultancy
+
+QUESTION
+
+Would PCA improve hospital readmission prediction for this dataset?
+
+ASSESSMENT
+
+PCA is not recommended as the primary modelling approach for this consultancy. The dataset has many observations but a relatively small number of clinical and utilisation predictors. The main requirement is not merely dimension reduction; it is an interpretable and deployable risk estimate for clinical staff.
+
+POTENTIAL BENEFITS
+
+PCA transforms correlated numeric variables into orthogonal principal components. It could reduce the number of numeric inputs, reduce multicollinearity, and support exploratory visualization. It may be useful if future data contain hundreds of laboratory measurements, repeated observations, or high-dimensional clinical trajectories.
+
+LIMITATIONS FOR THIS PROJECT
+
+1. Interpretability: A component is a weighted combination of variables, not a clinically named factor. A statement such as PC1 increased risk would be less actionable than medication count or prior emergency visits increased risk.
+2. Outcome relevance: PCA maximizes variance in predictors, not association with readmission. A high-variance component may have little predictive value.
+3. Mixed data: Race, gender, medication indicators, and disposition are categorical. Naive PCA on numeric encodings would be inappropriate; mixed-data methods would be required.
+4. Deployment: Every component score would need to be calculated and translated back into a clinical explanation.
+5. Validation: Any PCA transformation must be fitted on training data only to avoid leakage.
+
+PREFERRED ALTERNATIVE
+
+LASSO or elastic-net regression can reduce the effective feature set while retaining original variable names. Ridge regression can handle correlated predictors without replacing them with opaque components. These approaches are better aligned with a clinical risk tool and can be compared using cross-validated discrimination, calibration, sensitivity, specificity, and decision-curve measures.
+
+WHEN PCA WOULD BECOME REASONABLE
+
+PCA could be evaluated in a future study with high-dimensional laboratory, imaging, or longitudinal monitoring data. It should then be compared against supervised feature selection, elastic net, and clinically interpretable baselines. The transformation must be fitted inside each resampling fold.
+
+CONCLUSION
+
+PCA may support exploratory analysis in a larger future data environment, but it is not the best primary method for this low-to-moderate-dimensional, clinically oriented prediction problem. Interpretable penalized regression is the preferred approach.

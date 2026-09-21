@@ -1,0 +1,8 @@
+.Rproj.user/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*_files/
+Thumbs.db

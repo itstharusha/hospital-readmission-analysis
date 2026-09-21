@@ -1,0 +1,75 @@
+TASK 6: CRITICAL EVALUATION OF EXPERIMENTAL DESIGN
+Hospital Readmission Consultancy
+
+1. CONTEXT
+
+This consultancy uses retrospective observational discharge records. The analysis can identify associations and support risk stratification, but it cannot prove that a discharge intervention causes fewer readmissions. A future experiment should compare standard and enhanced discharge support using random assignment.
+
+2. COMPLETELY RANDOMIZED DESIGN (CRD)
+
+A CRD would randomly assign eligible discharged patients to two groups:
+
+- Intervention: nurse-led follow-up call within 48 hours, medication review, and scheduled primary-care follow-up.
+- Control: existing standard discharge process.
+- Primary outcome: readmission within 30 days.
+- Secondary outcomes: emergency visits, follow-up completion, patient experience, and intervention cost.
+
+Advantages:
+
+1. Randomization balances measured and unmeasured confounding on average.
+2. The design is easy to communicate and analyse.
+3. A single intervention can be tested with a clear endpoint.
+4. The study can estimate absolute risk reduction and number needed to treat.
+
+Limitations:
+
+1. A single hospital or unit may limit generalisability.
+2. A single intervention may not be appropriate for every risk level.
+3. Patients and staff cannot usually be blinded to a follow-up call.
+4. Contamination may occur if staff provide enhanced care to control patients.
+5. Withholding enhanced support may raise ethical concerns; control patients must still receive standard of care.
+
+3. RANDOMIZED COMPLETE BLOCK DESIGN (RCBD)
+
+An RCBD would stratify patients before randomization using pre-specified risk groups, for example low, moderate, and high predicted risk. Patients would then be randomized within each block to standard or enhanced support.
+
+Example:
+
+- Low risk: standard discharge versus enhanced discharge checklist.
+- Moderate risk: one follow-up call versus two calls plus medication reconciliation.
+- High risk: standard case management versus intensive multidisciplinary follow-up.
+
+Advantages:
+
+1. Risk blocks reduce outcome variability and improve statistical efficiency.
+2. The design tests whether intervention benefit differs by risk group.
+3. It supports resource allocation because intensive care can be evaluated where expected benefit is greatest.
+4. It aligns with the proposed HREWS workflow.
+5. Block-specific results are directly actionable for hospital managers.
+
+Limitations:
+
+1. Risk cutoffs must be set before outcome analysis and validated externally.
+2. Small or imbalanced blocks can reduce statistical power.
+3. The analysis must include block effects and treatment-by-block interaction.
+4. A risk model may reproduce historical inequities if it is not audited.
+5. RCBD is more complex to operate than a simple CRD.
+
+4. RECOMMENDED DESIGN
+
+RCBD is preferred for a readmission-prevention pilot because the central operational question is not simply whether follow-up works. It is whether different levels of follow-up produce enough benefit for different patient-risk groups to justify their resource cost.
+
+The trial should use intention-to-treat analysis, electronic health-record outcome capture where possible, a pre-registered analysis plan, and a sample-size calculation based on a clinically meaningful absolute reduction in 30-day readmission. Attrition and unavailable external readmissions should be considered before recruitment.
+
+5. IMPLEMENTATION RISKS AND MITIGATION
+
+- Loss to follow-up: use EHR, claims, telephone, and primary-care sources where permitted.
+- Protocol non-adherence: use staff training, checklists, audit logs, and weekly feedback.
+- Contamination: randomize at an appropriate unit or time level if patient-level allocation is impractical.
+- Ethical concerns: compare standard of care with enhanced care and define stopping rules.
+- Model error: validate the risk model on current hospital data before blocking.
+- Equity: report recruitment, treatment receipt, and outcomes by race, gender, age, and other relevant groups.
+
+6. CONCLUSION
+
+CRD offers a simple causal test of one intervention. RCBD is more suitable for this consultancy because it links experimental evidence to risk-stratified clinical operations. The current observational findings should therefore be treated as a basis for designing a pilot, not as proof that HREWS will reduce readmissions.

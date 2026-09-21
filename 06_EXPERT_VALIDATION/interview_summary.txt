@@ -1,0 +1,69 @@
+EXPERT VALIDATION INTERVIEW SUMMARY
+
+STATUS: TEMPLATE - COMPLETE ONLY AFTER A GENUINE INTERVIEW
+
+Date: [DD/MM/YYYY]
+Expert Name: [Name or anonymised identifier]
+Title: [Job title]
+Organization: [Hospital/institution]
+Interview Format: [Phone/video/in person]
+Duration: [Minutes]
+Interviewer: [Name]
+Consent to document and quote: [Yes/No]
+
+BACKGROUND
+
+Briefly describe the consultancy, the encounter-level dataset, the main descriptive findings, the predictive models, and the proposed HREWS workflow. Do not describe an interview as completed until the conversation has occurred and evidence is retained in 06_EXPERT_VALIDATION/EVIDENCE/.
+
+KEY FINDINGS
+
+Q1. Problem relevance
+Question: What are the biggest drivers of hospital readmission in your experience?
+Expert response: [Record the response accurately]
+Our interpretation: [Link the response to the analysis]
+
+Q2. Model validation
+Question: Are age, medication burden, prior utilisation, length of stay, and discharge destination plausible risk factors? What important factors are missing?
+Expert response: [Record the response accurately]
+Our interpretation: [State which factors should be emphasised or collected]
+
+Q3. Implementation feasibility
+Question: Would the discharge team use an advisory risk system? What would make it useful or burdensome?
+Expert response: [Record the response accurately]
+Our interpretation: [Describe workflow implications]
+
+Q4. Protocol appropriateness
+Question: Are standard, enhanced, and intensive follow-up protocols feasible for different risk levels?
+Expert response: [Record the response accurately]
+Our interpretation: [Describe required changes]
+
+Q5. Organizational barriers
+Question: What are the main barriers: staffing, budget, IT integration, patient access, competing priorities, or something else?
+Expert response: [Record the response accurately]
+Our interpretation: [Connect barriers to risk mitigation]
+
+Q6. Recommendation
+Question: What should the hospital do first if this system were available?
+Expert response: [Record the response accurately]
+Our interpretation: [State the prioritized next step]
+
+OVERALL ASSESSMENT
+
+Agreement or disagreement with the approach: [Summary]
+Most important expert insight: [Summary]
+Changes to Task 1 problem definition: [Details]
+Changes to Task 5 model or features: [Details]
+Changes to Task 10 HREWS proposal: [Details]
+Changes to Task 12 final recommendations: [Details]
+
+QUOTE WITH PERMISSION
+
+[Insert an exact quote only if permission was granted. Otherwise write: No quote used.]
+
+EVIDENCE CHECKLIST
+
+[ ] Interview notes or transcript retained
+[ ] Consent documented
+[ ] Evidence file added to 06_EXPERT_VALIDATION/EVIDENCE/
+[ ] Names and patient-identifying information handled appropriately
+[ ] Claims in the report reflect the actual interview

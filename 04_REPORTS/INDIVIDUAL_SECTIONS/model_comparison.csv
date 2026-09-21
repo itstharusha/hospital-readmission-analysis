@@ -1,0 +1,4 @@
+"Model","Accuracy","Sensitivity","Specificity","AUC","Threshold","Strengths","Limitations"
+"Logistic Regression",0.6191,0.6073,0.6206,0.6625,0.1038,"Interpretable coefficients","Linear log-odds assumption"
+"Ridge Regression",0.6601,0.5551,0.6733,0.6628,0.1132,"Handles correlated predictors","Retains all predictors"
+"LASSO Regression",0.6572,0.5583,0.6697,0.6601,0.1086,"Selects a sparse feature set","Selection can be unstable with correlated predictors"

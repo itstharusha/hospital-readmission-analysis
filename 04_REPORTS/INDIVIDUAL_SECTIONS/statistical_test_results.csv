@@ -1,0 +1,8 @@
+"Test","Test_Type","Statistic","p_value","Significant","Effect_Size","Mean_Difference","Clinical_Implication"
+"Age vs Readmission","Welch independent t-test",5.6741,0,"Yes (p < 0.05)",0.0562,0.8928,"Use age-stratified discharge planning; association is not causal"
+"Gender vs Readmission","Chi-square test of independence",1.2373,0.5387,"No",0.0035,NA,"Monitor subgroup performance and investigate access or care explanations"
+"Length of Stay vs Readmission","Welch independent t-test",13.9258,0,"Yes (p < 0.05)",0.1396,0.419,"Use LOS as a complexity marker alongside clinical context"
+"Medications vs Readmission","Welch independent t-test",12.302,0,"Yes (p < 0.05)",0.1223,0.992,"Prioritise medication reconciliation for polypharmacy patients"
+"Discharge Disposition vs Length of Stay","One-way ANOVA",431.9807,0,"Yes (p < 0.05)",0.096,NA,"Review disposition-specific discharge pathways and post-acute support"
+"Diabetes Medication Indicator vs Readmission","Chi-square test of independence",74.6694,0,"Yes (p < 0.05)",0.0271,NA,"Interpret medication status as a clinical complexity marker, not a treatment effect"
+ one is the one that was used in the first one, and that was the one that was used in The The first one is the one that was used in the movie The Last of Us.

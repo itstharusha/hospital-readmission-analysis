@@ -1,0 +1,121 @@
+---
+title: "Hospital Readmission Analysis: Statistical Modelling Consultancy Report"
+author: "Hospital Readmission Consultancy Team"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+geometry: margin=1in
+fontsize: 11pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+root_candidates <- unique(c(getwd(), normalizePath("..", winslash = "/", mustWork = TRUE)))
+root <- root_candidates[file.exists(file.path(root_candidates, "01_DATA", "readmission_raw.csv"))][1]
+if (is.na(root)) stop("Project root could not be located.")
+read_section <- function(path) paste(readLines(file.path(root, path), warn = FALSE), collapse = "\n")
+```
+
+# Executive Summary
+
+This report analyses 101,766 encounter records from the Diabetes 130-US Hospitals dataset to identify readmission patterns and propose a governed Hospital Readmission Early Warning System (HREWS). The source outcome was mapped so `<30` represents readmission within 30 days and `>30`/`NO` represent no readmission for binary modelling.
+
+The analysis found an approximately 11.2% 30-day readmission prevalence. Statistical associations were observed for age, length of stay, medication count, discharge disposition, and diabetes medication status. Gender was not statistically significant in the current test. Predictive models achieved test AUC values of approximately 0.66. These results support a monitored pilot, not autonomous clinical decisions or causal claims.
+
+# Task 1: Industry Problem Definition
+
+Hospital readmission affects patient safety, care continuity, staffing, and cost. The consultancy focuses on identifying patients who may benefit from coordinated discharge support while preserving clinical judgement, patient autonomy, privacy, and equity.
+
+# Task 2: Literature Review
+
+Insert the team literature review here. Include at least 15 genuine sources, consistent in citation style, with a critical synthesis rather than a list of abstracts.
+
+# Task 3: Descriptive Analysis
+
+The source data contain 101,766 encounters and 50 columns. Missingness is concentrated in several administrative and clinical fields. The complete encounter cohort is retained for descriptive analysis, while each model uses the fields required for that analysis.
+
+```{r task3-table}
+stats_path <- file.path(root, "04_REPORTS", "INDIVIDUAL_SECTIONS", "data_summary_statistics.csv")
+if (file.exists(stats_path)) knitr::kable(read.csv(stats_path), caption = "Numeric descriptive statistics")
+```
+
+```{r task3-figures, fig.show='hold', fig.cap='Task 3 descriptive figures'}
+figures <- file.path(root, "03_VISUALIZATIONS", "TASK3_Descriptive", paste0(sprintf("%02d", 1:10), c("_readmission_distribution.png", "_age_by_readmission.png", "_gender_by_readmission.png", "_race_by_readmission_EQUITY.png", "_los_by_readmission.png", "_medications_by_readmission.png", "_prior_utilization.png", "_outlier_detection_boxplots.png", "_correlation_matrix.png", "_missing_data_pattern.png")))
+figures <- figures[file.exists(figures)]
+if (length(figures) > 0) knitr::include_graphics(figures)
+```
+
+# Task 4: Statistical Inference
+
+The six tests are reported as associations. Welch tests were used for continuous variables, chi-square tests for categorical variables, and one-way ANOVA for discharge disposition and length of stay. Effect sizes should be considered alongside p-values because the sample is large.
+
+```{r task4-table}
+results_path <- file.path(root, "04_REPORTS", "INDIVIDUAL_SECTIONS", "statistical_test_results.csv")
+if (file.exists(results_path)) knitr::kable(read.csv(results_path), caption = "Statistical inference results")
+```
+
+# Task 5: Predictive Modelling
+
+The modelling pipeline uses a stratified split, training-only standardization for penalized models, five-fold cross-validation, and thresholds selected from training ROC curves. Logistic regression provides interpretable coefficients; ridge handles correlated predictors; LASSO produces a sparse model.
+
+```{r task5-table}
+models_path <- file.path(root, "04_REPORTS", "INDIVIDUAL_SECTIONS", "model_comparison.csv")
+if (file.exists(models_path)) knitr::kable(read.csv(models_path), caption = "Test-set model comparison")
+```
+
+```{r task5-figures, fig.show='hold', fig.cap='Task 5 model outputs'}
+model_figures <- file.path(root, "03_VISUALIZATIONS", "TASK5_Modeling", paste0(sprintf("%02d", 1:5), c("_logit_roc_curve.png", "_ridge_roc_curve.png", "_lasso_roc_curve.png", "_model_performance_comparison.png", "_feature_importance.png")))
+model_figures <- model_figures[file.exists(model_figures)]
+if (length(model_figures) > 0) knitr::include_graphics(model_figures)
+```
+
+# Task 6: Experimental Design
+
+```{r task6, results='asis'}
+cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/task6_experimental_design_evaluation.txt"))
+```
+
+# Task 7: PCA Evaluation
+
+```{r task7, results='asis'}
+cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/task7_pca_evaluation.txt"))
+```
+
+# Task 8: Bayesian Methods
+
+```{r task8, results='asis'}
+cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/task8_bayesian_evaluation.txt"))
+```
+
+# Task 9: Time Series Analysis
+
+```{r task9, results='asis'}
+cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/task9_timeseries_evaluation.txt"))
+```
+
+# Task 10: HREWS Innovation Proposal
+
+```{r task10, results='asis'}
+cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/MEMBER4_Task10_Innovation_Proposal.txt"))
+```
+
+# Task 11: Expert Validation
+
+The interview summary is a template until a real healthcare professional has been interviewed. Replace the placeholders only with verified notes, consent status, and evidence.
+
+```{r task11, results='asis'}
+cat(read_section("06_EXPERT_VALIDATION/interview_summary.txt"))
+```
+
+# Task 12: Final Recommendations
+
+```{r task12, results='asis'}
+cat(read_section("04_REPORTS/INDIVIDUAL_SECTIONS/MEMBER_ALL_Task12_Final_Recommendations.Rmd"))
+```
+
+# References
+
+Insert the genuine 15-plus literature sources here in Harvard or APA format. Check every statistic and external claim against its source before submission.

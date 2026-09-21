@@ -1,0 +1,69 @@
+TASK 10: HOSPITAL READMISSION EARLY WARNING SYSTEM (HREWS)
+Innovation Proposal for Data-Driven Clinical Decision Support
+
+EXECUTIVE SUMMARY
+
+HREWS is a proposed advisory system that estimates readmission risk at discharge, explains the main contributing factors, assigns a risk tier, and links that tier to a feasible follow-up protocol. The system is intended to support clinical judgement, not replace it.
+
+The current analysis found modest discrimination for three interpretable penalized/logistic models, with test AUC values approximately 0.66. This is suitable for a pilot risk-stratification study, not a claim of autonomous clinical decision-making. Local validation, calibration, equity auditing, and prospective evaluation are mandatory before deployment.
+
+1. SYSTEM COMPONENTS
+
+A. Predictive engine
+
+Inputs may include age band, medication burden, prior inpatient/outpatient/emergency utilisation, length of stay, procedures, diabetes medication indicator, race/gender for audit purposes, and discharge disposition. The model returns a probability and a list of model drivers.
+
+B. Risk tiers
+
+Initial thresholds should be selected using local intervention capacity and decision-curve analysis. Provisional thresholds can be low, moderate, and high, but they must not be treated as clinically validated cutoffs.
+
+C. Intervention protocols
+
+Low risk: standard discharge education, medication instructions, and routine follow-up.
+
+Moderate risk: structured discharge checklist, medication reconciliation, primary-care communication, and a nurse call within 48-72 hours.
+
+High risk: multidisciplinary discharge planning, intensive medication reconciliation, social-needs screening, appointment scheduling before discharge, and early nurse or telehealth contact.
+
+D. Dashboard
+
+Discharge planners should see risk probability, risk tier, key modifiable factors, recommended checklist, override option, and documentation fields. Managers should see calibration, readmission by tier, intervention adherence, subgroup equity metrics, and workload/cost indicators.
+
+2. WORKFLOW
+
+1. A discharge decision triggers an automated risk calculation.
+2. The system displays probability, tier, and explanation.
+3. The care team reviews the recommendation and may override it with a reason.
+4. The selected intervention checklist is assigned.
+5. Follow-up completion and 30-day outcomes are recorded.
+6. Monthly governance reviews performance, equity, safety, and resource use.
+
+3. EXPECTED VALUE
+
+Potential benefits include more consistent discharge planning, earlier contact with high-risk patients, improved medication reconciliation, better coordination of post-acute services, and transparent monitoring of disparities. The size of any readmission reduction must be estimated prospectively; the observational model alone cannot establish it.
+
+4. IMPLEMENTATION ROADMAP
+
+Months 1-2: appoint clinical and technical governance, confirm data definitions, identify pilot unit, and obtain privacy/ethics approval.
+
+Months 3-5: implement the baseline model, validate it on recent local data, design the dashboard, and finalize protocols.
+
+Months 6-8: run advisory-mode pilot, measure usability, calibration, subgroup performance, intervention completion, and workflow time.
+
+Months 9-12: expand only if pilot safety, calibration, adoption, and resource capacity targets are met.
+
+5. GOVERNANCE AND RISK CONTROL
+
+The system should have a named clinical owner, data owner, technical owner, and escalation process. Monitoring should include discrimination, calibration, false-negative review, subgroup performance, intervention access, data drift, and override patterns.
+
+Risks include model drift, false reassurance, staff resistance, workflow delays, unequal intervention access, privacy breaches, and insufficient follow-up capacity. Mitigations include local validation, advisory-only deployment, audit logs, encryption, role-based access, staff training, clinical overrides, and phased implementation.
+
+6. SUCCESS MEASURES
+
+Primary: change in 30-day readmission rate in a prospective evaluation.
+
+Secondary: calibration, sensitivity at an agreed operating threshold, follow-up completion, medication reconciliation completion, time to first contact, patient experience, staff workload, cost per prevented readmission, and equity of intervention receipt.
+
+7. CONCLUSION
+
+HREWS is a feasible innovation proposal when treated as a governed clinical decision-support pilot. The next action is not hospital-wide automation; it is local validation followed by a monitored advisory pilot and, where feasible, a randomized or controlled evaluation of the intervention protocols.
